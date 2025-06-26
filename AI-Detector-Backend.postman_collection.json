@@ -1,0 +1,76 @@
+{
+  "info": {
+    "name": "AI Detector Backend",
+    "_postman_id": "a-unique-id",
+    "description": "Collection for AI detector backend API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Detect RoBERTa",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"text\":\"Sample text to test AI detection.\"}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/detect",
+          "host": ["{{baseUrl}}"],
+          "path": ["detect"]
+        }
+      }
+    },
+    {
+      "name": "Detect DetectGPT",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"text\":\"Sample text to test AI detection.\"}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/detectgpt",
+          "host": ["{{baseUrl}}"],
+          "path": ["detectgpt"]
+        }
+      }
+    },
+    {
+      "name": "Upload Document",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": ""
+            },
+            {
+              "key": "method",
+              "value": "roberta",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/upload",
+          "host": ["{{baseUrl}}"],
+          "path": ["upload"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:10000",
+      "type": "string"
+    }
+  ]
+}
