@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+transformers
+torch
+numpy
+scipy
+python-multipart
+pdfplumber
+python-docx
+requests
