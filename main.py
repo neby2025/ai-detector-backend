@@ -33,5 +33,6 @@ async def upload_and_detect(file: UploadFile = File(...), method: str = Form("ro
     else:
         return {"error": "Invalid method"}
         if __name__ == "__main__":
-    print("This should not run on Render.")  # Just for debug
+    print("This should not run on Render.")
+
 
