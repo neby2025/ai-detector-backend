@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File, Form
+from fastapi import FastAPI
 from pydantic import BaseModel
 from roberta_model import roberta_detect
 from detectgpt import detect_gpt_score
@@ -9,7 +9,9 @@ app = FastAPI()
 class TextInput(BaseModel):
     text: str
 
-@app.post("/detect")
+@app.get("/")
+def read_root():
+    return {"message": "AI Detector backend is running"}@app.post("/detect")
 def detect_roberta(input: TextInput):
     return roberta_detect(input.text)
 
@@ -30,3 +32,6 @@ async def upload_and_detect(file: UploadFile = File(...), method: str = Form("ro
         return {"score": score, "label": "AI" if score > 0.2 else "Human"}
     else:
         return {"error": "Invalid method"}
+        if __name__ == "__main__":
+    print("This should not run on Render.")  # Just for debug
+
